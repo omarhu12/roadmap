@@ -3,27 +3,90 @@
   "sections": [
     {
       "id": "s1foundations",
-      "title": "Foundations",
+      "title": "UI / UX",
       "items": [
-        { "id": "i1html", "title": "Learn HTML & CSS basics", "type": "task", "url": "", "done": false },
-        { "id": "i2cs50", "title": "CS50: Introduction to Computer Science", "type": "course", "url": "https://cs50.harvard.edu/x/", "done": false },
-        { "id": "i3git", "title": "Pick an editor & set up git", "type": "task", "url": "", "done": false }
+        {
+          "id": "i1html",
+          "title": "UI/UX introduction",
+          "type": "course",
+          "url": "https://www.youtube.com/watch?v=wIuVvCuiJhU",
+          "done": false
+        },
+        {
+          "id": "x0tairedmu4end15",
+          "title": "UI/UX Design Course For Beginners (optinal)",
+          "type": "course",
+          "url": "https://www.youtube.com/watch?v=NeUEctMZ6_g&list=WL&index=5&t=35359s",
+          "done": false
+        }
       ]
     },
     {
       "id": "s2core",
-      "title": "Core Skills",
+      "title": "Figma & Web Design",
       "items": [
-        { "id": "i4js", "title": "JavaScript fundamentals", "type": "task", "url": "", "done": false },
-        { "id": "i5odin", "title": "The Odin Project — Full Stack path", "type": "course", "url": "https://www.theodinproject.com/", "done": false }
+        {
+          "id": "i4js",
+          "title": "Web Design Course",
+          "type": "course",
+          "url": "https://www.youtube.com/watch?v=kEN4pp-UFf0",
+          "done": false
+        },
+        {
+          "id": "i5odin",
+          "title": "Figma Course Design a Website In Figma",
+          "type": "course",
+          "url": "https://www.youtube.com/watch?v=Y0Mw3lscVWM&t=21s",
+          "done": false
+        },
+        {
+          "id": "gjb6fzwvmu4e9va2",
+          "title": "Figma Advanced Course (optinal)",
+          "type": "course",
+          "url": "https://www.youtube.com/watch?v=Od7AfBvBwWo&list=WL&index=5",
+          "done": false
+        },
+        {
+          "id": "0shlql43mu4etqcg",
+          "title": "Design a C omplete E-Commerce Website",
+          "type": "task",
+          "url": "",
+          "done": false
+        }
       ]
     },
     {
       "id": "s3ship",
-      "title": "Build & Ship",
+      "title": "Shopify",
       "items": [
-        { "id": "i6project", "title": "Build a portfolio project", "type": "task", "url": "", "done": false },
-        { "id": "i7deploy", "title": "Deploy it publicly", "type": "task", "url": "", "done": false }
+        {
+          "id": "i6project",
+          "title": "Shopify Course",
+          "type": "course",
+          "url": "https://www.youtube.com/watch?v=iwmz1sL5r9g&t=11156s",
+          "done": false
+        },
+        {
+          "id": "i7deploy",
+          "title": "Shopify SEO",
+          "type": "course",
+          "url": "https://youtu.be/SjdB6RuLris?si=qKbaEmv190GBsHsJ",
+          "done": false
+        },
+        {
+          "id": "3hk27f9imu4ex474",
+          "title": "Shopify Apps",
+          "type": "course",
+          "url": "https://youtu.be/LxnvivKBEhY?si=UCznrsZHywmePh3a",
+          "done": false
+        },
+        {
+          "id": "jv6xmwakmu4exj60",
+          "title": "Build A Complete Shopify Store",
+          "type": "task",
+          "url": "",
+          "done": false
+        }
       ]
     }
   ]
