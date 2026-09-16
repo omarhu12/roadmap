@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trailhead — Editor</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🛠️</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="is-admin">
+
+<div class="grain"></div>
+<div class="admin-strip">EDITOR DRAFT — changes here only go live once you export &amp; commit <code>data.json</code></div>
+
+<header class="header">
+  <div class="header-inner">
+    <div class="brand">
+      <span class="brand-mark">✎</span>
+      <div>
+        <h1 id="roadmap-title" class="brand-title" contenteditable="true" spellcheck="false">Loading…</h1>
+        <p class="brand-sub">editing the roadmap</p>
+      </div>
+    </div>
+
+    <div class="dial-wrap">
+      <svg class="dial" viewBox="0 0 120 120" width="92" height="92">
+        <circle class="dial-track" cx="60" cy="60" r="50" />
+        <circle id="dial-fill" class="dial-fill" cx="60" cy="60" r="50" />
+      </svg>
+      <div class="dial-label">
+        <span id="dial-pct">0%</span>
+        <small id="dial-frac">0 / 0</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="toolbar">
+    <button id="add-section-btn" class="btn btn-primary">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 4v16M4 12h16"/></svg>
+      New waypoint
+    </button>
+    <div class="toolbar-spacer"></div>
+    <button id="export-btn" class="btn btn-ghost" title="Download the current draft as data.json">Export data.json</button>
+    <label class="btn btn-ghost" for="import-input" title="Load a data.json file to keep editing it">Import</label>
+    <input type="file" id="import-input" accept="application/json" hidden>
+    <button id="reload-btn" class="btn btn-ghost" title="Discard this draft and reload the committed data.json">Discard draft</button>
+  </div>
+</header>
+
+<main class="trail" id="trail">
+  <div class="trail-line">
+    <div class="trail-line-fill" id="trail-line-fill"></div>
+  </div>
+  <div class="waypoints" id="waypoints"></div>
+</main>
+
+<footer class="footer">
+  <p>Edits are saved to this browser as a draft. Export and commit <code>data.json</code> to publish them.</p>
+  <p><a class="admin-link" href="index.html">← Back to student view</a></p>
+</footer>
+
+<!-- Templates: full editing controls. -->
+<template id="tpl-waypoint">
+  <section class="waypoint" data-id="">
+    <div class="waypoint-node">
+      <span class="node-index"></span>
+    </div>
+    <div class="waypoint-card">
+      <div class="waypoint-head">
+        <h2 class="waypoint-title" contenteditable="true" spellcheck="false"></h2>
+        <div class="waypoint-progress">
+          <div class="mini-bar"><div class="mini-bar-fill"></div></div>
+          <span class="mini-frac"></span>
+        </div>
+        <button class="icon-btn del-waypoint" title="Remove this waypoint">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M9 7V4h6v3m-8 0 1 13h8l1-13"/></svg>
+        </button>
+      </div>
+      <ul class="item-list"></ul>
+      <button class="add-item-btn">
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M12 4v16M4 12h16"/></svg>
+        Add task or course
+      </button>
+    </div>
+  </section>
+</template>
+
+<template id="tpl-item">
+  <li class="item" data-id="">
+    <label class="item-check">
+      <input type="checkbox" class="item-checkbox">
+      <span class="check-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l6 6L20 6"/></svg>
+      </span>
+    </label>
+    <div class="item-body">
+      <div class="item-row">
+        <span class="item-type-tag"></span>
+        <span class="item-title" contenteditable="true" spellcheck="false"></span>
+      </div>
+      <a class="item-link" target="_blank" rel="noopener noreferrer">↗ open link</a>
+    </div>
+    <div class="item-actions">
+      <button class="icon-btn toggle-type-btn" title="Switch between task / course">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 2l4 4-4 4M3 12v-2a4 4 0 0 1 4-4h14M7 22l-4-4 4-4M21 12v2a4 4 0 0 1-4 4H3"/></svg>
+      </button>
+      <button class="icon-btn edit-link-btn" title="Add / edit link">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1.5 1.5M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1.5-1.5"/></svg>
+      </button>
+      <button class="icon-btn del-item-btn" title="Delete">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M9 7V4h6v3m-8 0 1 13h8l1-13"/></svg>
+      </button>
+    </div>
+  </li>
+</template>
+
+<script src="shared.js"></script>
+<script src="admin.js"></script>
+</body>
+</html>

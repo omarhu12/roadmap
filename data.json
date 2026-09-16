@@ -1,0 +1,30 @@
+{
+  "title": "My Learning Roadmap",
+  "sections": [
+    {
+      "id": "s1foundations",
+      "title": "Foundations",
+      "items": [
+        { "id": "i1html", "title": "Learn HTML & CSS basics", "type": "task", "url": "", "done": false },
+        { "id": "i2cs50", "title": "CS50: Introduction to Computer Science", "type": "course", "url": "https://cs50.harvard.edu/x/", "done": false },
+        { "id": "i3git", "title": "Pick an editor & set up git", "type": "task", "url": "", "done": false }
+      ]
+    },
+    {
+      "id": "s2core",
+      "title": "Core Skills",
+      "items": [
+        { "id": "i4js", "title": "JavaScript fundamentals", "type": "task", "url": "", "done": false },
+        { "id": "i5odin", "title": "The Odin Project — Full Stack path", "type": "course", "url": "https://www.theodinproject.com/", "done": false }
+      ]
+    },
+    {
+      "id": "s3ship",
+      "title": "Build & Ship",
+      "items": [
+        { "id": "i6project", "title": "Build a portfolio project", "type": "task", "url": "", "done": false },
+        { "id": "i7deploy", "title": "Deploy it publicly", "type": "task", "url": "", "done": false }
+      ]
+    }
+  ]
+}

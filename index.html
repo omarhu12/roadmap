@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Trailhead — Learning Roadmap</title>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🧭</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="grain"></div>
+
+<header class="header">
+  <div class="header-inner">
+    <div class="brand">
+      <span class="brand-mark">✦</span>
+      <div>
+        <h1 id="roadmap-title" class="brand-title">Loading…</h1>
+        <p class="brand-sub">a learning roadmap</p>
+      </div>
+    </div>
+
+    <div class="dial-wrap">
+      <svg class="dial" viewBox="0 0 120 120" width="92" height="92">
+        <circle class="dial-track" cx="60" cy="60" r="50" />
+        <circle id="dial-fill" class="dial-fill" cx="60" cy="60" r="50" />
+      </svg>
+      <div class="dial-label">
+        <span id="dial-pct">0%</span>
+        <small id="dial-frac">0 / 0</small>
+      </div>
+    </div>
+  </div>
+
+  <div class="toolbar">
+    <span class="note-banner" id="note-banner" hidden></span>
+    <div class="toolbar-spacer"></div>
+    <button id="reset-progress-btn" class="btn btn-ghost btn-danger" title="Clear your checkmarks and start this roadmap over">Reset my progress</button>
+  </div>
+</header>
+
+<main class="trail" id="trail">
+  <div class="trail-line">
+    <div class="trail-line-fill" id="trail-line-fill"></div>
+  </div>
+  <div class="waypoints" id="waypoints"></div>
+</main>
+
+<footer class="footer">
+  <p>Every journey is a series of checkboxes. — carry on.</p>
+  <p><a class="admin-link" href="admin.html">Curator? edit the roadmap →</a></p>
+</footer>
+
+<!-- Templates: read-only. No add/delete/edit-link/type-toggle controls, no contenteditable. -->
+<template id="tpl-waypoint">
+  <section class="waypoint" data-id="">
+    <div class="waypoint-node">
+      <span class="node-index"></span>
+    </div>
+    <div class="waypoint-card">
+      <div class="waypoint-head">
+        <h2 class="waypoint-title"></h2>
+        <div class="waypoint-progress">
+          <div class="mini-bar"><div class="mini-bar-fill"></div></div>
+          <span class="mini-frac"></span>
+        </div>
+      </div>
+      <ul class="item-list"></ul>
+    </div>
+  </section>
+</template>
+
+<template id="tpl-item">
+  <li class="item" data-id="">
+    <label class="item-check">
+      <input type="checkbox" class="item-checkbox">
+      <span class="check-box">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><path d="M4 12l6 6L20 6"/></svg>
+      </span>
+    </label>
+    <div class="item-body">
+      <div class="item-row">
+        <span class="item-type-tag"></span>
+        <span class="item-title"></span>
+      </div>
+      <a class="item-link" target="_blank" rel="noopener noreferrer">↗ open link</a>
+    </div>
+  </li>
+</template>
+
+<script src="shared.js"></script>
+<script src="student.js"></script>
+</body>
+</html>
